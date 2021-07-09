@@ -1,0 +1,156 @@
+.main-container {
+    // @include flexbox($flow:row wrap, $align:flex-start);
+    background-color: $body-bg-color;
+    min-height: 100vh;
+    text-align: center;
+
+    .logo {
+        margin: 4rem auto;
+    }
+}
+
+.calculator {
+    @include flexbox;
+    background-color: $White;
+    border-radius: 1rem 1rem 0 0;
+    padding: 3rem 0;
+    text-align: left;
+    width: 100%;
+}
+
+.bill {
+    // border: 1px solid magenta;
+    margin: 2rem 0;
+    width: 90%;
+    max-width: 25rem;
+
+    &__title {
+        color: $Dark-grayish-cyan;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    &__input-label {
+        position: relative;
+
+        &::before {
+            content: url(../../images/icon-dollar.svg);
+            position: absolute;
+            left: 1rem;
+            top: -.5rem;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    &__input {
+        background-color: $Light-grayish-cyan;
+        border: none;
+        // border: 1px solid red;
+        border-radius: 1rem;
+        text-align: right;
+        font-size: 2rem;
+        font-family: $main-font;
+        font-weight: 700;
+        outline: none;
+        padding: 1rem;
+        width: 100%;
+
+
+    }
+}
+
+.tip {
+    @extend .bill;
+
+    &__title {
+        @extend .bill__title
+    }
+
+    .btn-container {
+        // border: 1px solid mediumblue;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        justify-content: space-between;
+    }
+
+}
+
+.people {
+    @extend .bill;
+
+    &__title {
+        @extend .bill__title;
+    }
+
+    &__input-label {
+        @extend .bill__input-label;
+
+        &::before{
+            content: url(../../images/icon-person.svg)
+        }
+    }
+
+    &__input {
+        @extend .bill__input;
+    }
+}
+
+.account {
+    background-color: $Very-dark-cyan;
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    width: 90%;
+    max-width: 25rem;
+
+    .tip-amount {
+        display: flex;
+        font-size: .8rem;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+            color: $White;
+        }
+
+        .advice {
+            display: block;
+            color: $Dark-grayish-cyan;
+        }
+
+        &__amount-per-person {
+            color: $cyan;
+            font-size: 2.4rem;
+        }
+
+    }
+
+    .total {
+        @extend .tip-amount;
+        margin-top: 3rem;
+
+        &__title {
+            @extend .tip-amount__title;
+        }
+
+        .advice {
+            @extend .advice;
+        }
+
+        &__amount-per-person {
+            @extend .tip-amount__amount-per-person;
+        }
+    }
+}
+
+.attribution {
+    background-color: $White;
+    padding: 2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    a{
+        color: $cyan;
+    }
+}

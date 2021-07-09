@@ -4,27 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+  <meta name="description" content="Tip caclculator app">
+  <meta name="keywords" content="HTML, SCSS, CSS, Javascript, Frontend-Mentor">
+  <meta name="author" content="Jose Angel Rey">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="./css/main.css">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-
-    #bill {
-      text-align: right;
-    }
-  </style>
+  <title>Tip calculator app | Frontend Mentor</title>
 </head>
 
 <body>
@@ -37,8 +29,8 @@
       <!-- Bill -->
       <section class="bill">
         <h2 class="bill__title">Bill</h2>
-        <label for="bill"></label>
-        <input type="text" name="bill" id="bill">
+        <label for="bill" class="bill__input-label"></label>
+        <input type="text" name="bill" id="bill" class="bill__input" placeholder="0">
       </section>
 
 
@@ -53,15 +45,15 @@
           <button data-value="1.25" class="btn btn-tip">25%</button>
           <button data-value="1.5" class="btn btn-tip">50%</button>
           <label for="custom-tip"></label>
-          <input type="text" name="custom-tip" id="custom-tip" placeholder="Custom">
+          <input type="text" name="custom-tip" id="custom-tip" class="btn btn-custom" placeholder="Custom">
         </div>
       </section>
 
       <!-- People -->
       <section class="people">
         <h2 class="people__title">Number of People</h2>
-        <label for="people"></label>
-        <input type="text" name="people" id="people" placeholder="0">
+        <label for="people" class="people__input-label"></label>
+        <input type="text" name="people" id="people" placeholder="0" class="people__input">
       </section>
 
       <!-- Account -->
@@ -70,13 +62,13 @@
         <!-- Tip -->
         <div class="tip-amount">
           <h2 class="tip-amount__title"> Tip Amount<span class="advice">/ person</span></h2>
-          <p class="tip-amount__amount-per-person"></p>
+          <p class="tip-amount__amount-per-person">$0.00</p>
         </div>
 
         <!-- Total -->
         <div class="total">
           <h2 class="total__title"> Tip Amount<span class="advice">/ person</span></h2>
-          <p class="total__amount-per-person"></p>
+          <p class="total__amount-per-person">$0.00</p>
         </div>
 
         <!-- Reset -->

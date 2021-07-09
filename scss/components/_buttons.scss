@@ -1,0 +1,41 @@
+// **************************
+//         BUTTONs
+// **************************
+
+.btn {
+    background-color: $Very-dark-cyan;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-family: $main-font;
+    font-size: 2rem;
+    outline: none;
+    color: $White;
+    padding: .6rem 0;
+
+    &-reset {
+        background-color: $cyan;
+        color: $Very-dark-cyan;
+        font-weight: 700;
+        font-size: 1.5rem;
+        width: 100%;
+        text-transform: uppercase;
+        margin-top: 3rem;
+    }
+
+    &-tip {
+        width: 11.5rem;
+    }
+
+    &-custom {
+        background-color: $Light-grayish-cyan;
+        color: $Dark-grayish-cyan-2;
+        text-align: right;
+        font-size: 2rem;
+        font-family: $main-font;
+        font-weight: 700;
+        width: 11.5rem;
+        padding: .6rem 1rem .6rem 0;
+
+    }
+}
