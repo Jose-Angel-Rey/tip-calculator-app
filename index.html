@@ -1,44 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Tip calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    #bill {
+      text-align: right;
+    }
   </style>
 </head>
+
 <body>
 
-  Bill
+  <div class="main-container">
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+    <img src="./images/logo.svg" alt="Spliiter logo" class="logo">
 
-  Number of People
+    <main class="calculator">
+      <!-- Bill -->
+      <section class="bill">
+        <h2 class="bill__title">Bill</h2>
+        <label for="bill"></label>
+        <input type="text" name="bill" id="bill">
+      </section>
 
-  Tip Amount
-  / person
 
-  Total
-  / person
+      <!-- Tip -->
+      <section class="tip">
+        <h2 class="tip__title">Select Tip %</h2>
 
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+        <div class="btn-container">
+          <button data-value="1.05" class="btn btn-tip">5%</button>
+          <button data-value="1.1" class="btn btn-tip">10%</button>
+          <button data-value="1.15" class="btn btn-tip">15%</button>
+          <button data-value="1.25" class="btn btn-tip">25%</button>
+          <button data-value="1.5" class="btn btn-tip">50%</button>
+          <label for="custom-tip"></label>
+          <input type="text" name="custom-tip" id="custom-tip" placeholder="Custom">
+        </div>
+      </section>
+
+      <!-- People -->
+      <section class="people">
+        <h2 class="people__title">Number of People</h2>
+        <label for="people"></label>
+        <input type="text" name="people" id="people" placeholder="0">
+      </section>
+
+      <!-- Account -->
+      <section class="account">
+
+        <!-- Tip -->
+        <div class="tip-amount">
+          <h2 class="tip-amount__title"> Tip Amount<span class="advice">/ person</span></h2>
+          <p class="tip-amount__amount-per-person"></p>
+        </div>
+
+        <!-- Total -->
+        <div class="total">
+          <h2 class="total__title"> Tip Amount<span class="advice">/ person</span></h2>
+          <p class="total__amount-per-person"></p>
+        </div>
+
+        <!-- Reset -->
+        <button class="btn btn-reset">Reset</button>
+      </section>
+    </main>
+
+    <!-- Attribution footer -->
+    <div class="attribution">
+      <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          rel="noreferrer noopener">Frontend Mentor</a>.</p>
+      <p>Coded by <a href="https://github.com/Jose-Angel-Rey" target="_blank" rel="noreferrer noopener">Jose Angel
+          Rey</a>
+      </p>
+    </div>
   </div>
+
+  <script src="./js/app.js"></script>
 </body>
+
 </html>
