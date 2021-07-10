@@ -2,12 +2,13 @@
 // Botones
 const tipButtons = document.querySelectorAll(".btn-tip");
 const customTip = document.getElementById("custom-tip");
+const resetButton = document.querySelector(".btn-reset")
 
 // Inputs
 const inputPeople = document.getElementById("people");
 const inputBill = document.getElementById("bill");
 
-let tipValue = 1;
+let tipValue = .001;
 let billValue = 0;
 let peopleValue = 1;
 
@@ -19,7 +20,24 @@ let tipPerPerson = document.querySelector(".tip-amount__amount-per-person");
 inputBill.addEventListener("input", () => {
     billValue = inputValidation(inputBill);
     total();
+    if (!billValue == 0) {
+        resetButton.disabled = false;
+        resetButton.addEventListener("click", resetValues)
+    }
 });
+
+function resetValues() {
+    tipButtons.forEach((button) => {
+        if (button.classList.contains("btn-tip--active")) button.classList.remove("btn-tip--active")
+    })
+    customTip.value = "";
+    inputBill.value = "";
+    inputPeople.value = "";
+    tipPerPerson.textContent = `$0.00`;
+    totalPerPerson.textContent = `$0.00`;
+    resetButton.disabled = true;
+
+}
 
 // People input
 inputPeople.addEventListener("input", () => {
@@ -94,5 +112,5 @@ function total() {
 
     tipPerPerson.textContent = `$${tipAmount}`;
     totalPerPerson.textContent = `$${totalAmount}`;
+
 }
-total();
