@@ -7,11 +7,26 @@
     border: none;
     border-radius: .5rem;
     cursor: pointer;
-    font-family: $main-font;
-    font-size: 2rem;
+
+    font: {
+        family: $main-font;
+        size: 2rem;
+        weight: 700;
+    }
+
     outline: none;
     color: $White;
     padding: .6rem 0;
+    transition: all .5s;
+
+    &:hover {
+        background-color: $hover-cyan;
+        color: $Very-dark-cyan;
+    }
+
+    &:active {
+        background-color: $cyan;
+    }
 
     &-reset {
         background-color: $cyan;
@@ -21,20 +36,17 @@
         width: 100%;
         text-transform: uppercase;
         margin-top: 3rem;
-        transition: all .5s;
+
+        @include for-large-screens {
+            padding: 1.5rem 0;
+        }
 
         &:hover {
-            background-color: #9FE8DF;
             transform: scale(1.01);
         }
 
         &:active {
-            background-color: $cyan;
             transform: scale(1);
-        }
-
-        @include for-large-screens {
-            padding: 1.5rem 0;
         }
 
         &:disabled {
