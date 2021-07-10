@@ -3,7 +3,6 @@
 // **************************
 
 .container {
-    border: 1px solid red;
     @include flexbox;
     width: 100%;
     max-width: 30rem;
@@ -34,10 +33,11 @@
 }
 
 .bill {
-    // border: 1px solid magenta;
+    border: 1px solid red;
     margin: 2rem 0;
     width: 90%;
     max-width: 25rem;
+    position: relative;
 
     @include for-large-screens {
         width: 100%;
@@ -50,42 +50,20 @@
         font-size: 1.3rem;
         margin-bottom: 1rem;
     }
-
-    &__input-label {
-        position: relative;
-
-        &::before {
-            content: url(../../images/icon-dollar.svg);
-            position: absolute;
-            left: 1rem;
-            top: -.5rem;
-            width: auto;
-            height: auto;
-        }
-    }
-
-    &__input {
-        background-color: $Light-grayish-cyan;
-        border: none;
-        // border: 1px solid red;
-        border-radius: 1rem;
-        text-align: right;
-        font-size: 2rem;
-        font-family: $main-font;
-        font-weight: 700;
-        outline: none;
-        padding: 1rem;
-        width: 100%;
-
-
-    }
 }
+
+
+
+
+
+
+
 
 .tip {
     @extend .bill;
 
     @include for-large-screens {
-        margin: 3rem 0;
+        margin: 4rem 0;
 
     }
 
@@ -94,11 +72,15 @@
     }
 
     .btn-container {
-        // border: 1px solid mediumblue;
         display: flex;
         flex-wrap: wrap;
         row-gap: 1rem;
         justify-content: space-between;
+
+        @include for-large-screens {
+            row-gap: 1.5rem;
+
+        }
     }
 
 }
@@ -108,18 +90,6 @@
 
     &__title {
         @extend .bill__title;
-    }
-
-    &__input-label {
-        @extend .bill__input-label;
-
-        &::before {
-            content: url(../../images/icon-person.svg)
-        }
-    }
-
-    &__input {
-        @extend .bill__input;
     }
 }
 
@@ -142,7 +112,8 @@
         align-items: center;
 
         @include for-large-screens {
-            margin: 2rem 0 4rem;
+            margin: 1rem 0;
+            font-size: 1rem;
         }
 
         &__title {
@@ -157,6 +128,11 @@
         &__amount-per-person {
             color: $cyan;
             font-size: 2.4rem;
+
+            @include for-large-screens {
+                font-size: 4rem;
+                font-weight: 700
+            }
         }
 
     }
@@ -167,10 +143,6 @@
 
         @include for-medium-screens {
             margin-bottom: 7rem;
-        }
-
-        @include for-large-screens {
-            margin-bottom: 9rem;
         }
 
         &__title {

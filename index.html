@@ -31,8 +31,9 @@
         <!-- Bill -->
         <section class="bill">
           <h2 class="bill__title">Bill</h2>
-          <label for="bill" class="bill__input-label"></label>
-          <input type="number" name="bill" id="bill" class="bill__input" placeholder="0">
+          <label for="bill" class="input__label"></label>
+          <span class="input__warning">Can't be zero</span>
+          <input type="number" name="bill" id="bill" class="input__field" placeholder="0">
         </section>
         <!-- Tip -->
         <section class="tip">
@@ -45,14 +46,15 @@
             <button data-value="1.25" class="btn btn-tip">25%</button>
             <button data-value="1.5" class="btn btn-tip">50%</button>
             <label for="custom-tip"></label>
-            <input type="number" name="custom-tip" id="custom-tip" class="btn btn-custom" placeholder="Custom">
+            <input type="number" name="custom-tip" id="custom-tip" class="btn input-custom" placeholder="Custom">
           </div>
         </section>
         <!-- People -->
         <section class="people">
           <h2 class="people__title">Number of People</h2>
-          <label for="people" class="people__input-label"></label>
-          <input type="number" name="people" id="people" placeholder="0" class="people__input">
+          <label for="people" class="input__label input__label--people-icon"></label>
+          <span class="input__warning">Can't be zero</span>
+          <input type="number" name="people" id="people" placeholder="0" class="input__field" data-warning="">
         </section>
       </div>
 
@@ -72,7 +74,7 @@
         </div>
 
         <!-- Reset -->
-        <button class="btn btn-reset disabled">Reset</button>
+        <button class="btn btn-reset" disabled>Reset</button>
       </section>
     </main>
 
