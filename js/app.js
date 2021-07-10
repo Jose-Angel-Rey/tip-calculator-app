@@ -8,34 +8,41 @@ const inputPeople = document.getElementById("people");
 const inputBill = document.getElementById("bill");
 
 let tipValue = 1;
-let billValue;
-let peopleValue;
+let billValue = 0;
+let peopleValue = 1;
+
+// Totales
+let totalPerPerson = document.querySelector(".total__amount-per-person");
+let tipPerPerson = document.querySelector(".tip-amount__amount-per-person");
 
 // Bill input
 inputBill.addEventListener("input", () => {
     billValue = inputValidation(inputBill);
+    total();
 });
 
 // People input
 inputPeople.addEventListener("input", () => {
     peopleValue = inputValidation(inputPeople);
+    total();
 });
 
 function inputValidation(input) {
-    let inputWarning = input.previousElementSibling
+    let inputWarning = input.previousElementSibling;
     if (input.value <= 0) {
         inputWarning.classList.add("input__warning--active");
-        input.style.borderColor = "#c91e1e;"
-    } else if (input.value > 0 && inputWarning.classList.contains("input__warning--active")) inputWarning.classList.remove("input__warning--active");
+        input.style.borderColor = "#c91e1e;";
+    } else if (
+        input.value > 0 &&
+        inputWarning.classList.contains("input__warning--active")
+    )
+        inputWarning.classList.remove("input__warning--active");
 
-    if (input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
+    if (input.value.length > input.maxLength)
+        input.value = input.value.slice(0, input.maxLength);
 
-    return input.value;
+    return Number(input.value);
 }
-
-// Totales
-let totalAmount = document.querySelector(".total__amount-per-person");
-let totalTip = document.querySelector(".tip-amount__amount-per-person");
 
 // -----------------------------------------------------------------
 
@@ -48,10 +55,17 @@ tipButtons.forEach((tipButton) => {
             });
             tipButton.classList.add("btn-tip--active");
             tipValue = tipButton.getAttribute("data-value");
+            if (
+                customTip.previousElementSibling.classList.contains(
+                    "input__warning--active"
+                )
+            )
+                inputWarning.classList.remove("input__warning--active");
         } else {
             tipButton.classList.remove("btn-tip--active");
             tipValue = 1;
         }
+        total();
     });
 });
 
@@ -68,6 +82,17 @@ customTip.addEventListener("click", () => {
 
 // Obtener el valor custom
 customTip.addEventListener("input", () => {
-    tipValue = inputValidation(customTip)
+    tipValue = inputValidation(customTip);
+    total();
 });
 // -----------------------------------------------------------------
+
+
+function total() {
+    const tipAmount = ((billValue * tipValue) / 100 / peopleValue).toFixed(2);
+    const totalAmount = ((billValue / peopleValue) + Number(tipAmount)).toFixed(2);
+
+    tipPerPerson.textContent = `$${tipAmount}`;
+    totalPerPerson.textContent = `$${totalAmount}`;
+}
+total();
