@@ -26,35 +26,35 @@
     <img src="./images/logo.svg" alt="Spliiter logo" class="logo">
 
     <main class="calculator">
-      <!-- Bill -->
-      <section class="bill">
-        <h2 class="bill__title">Bill</h2>
-        <label for="bill" class="bill__input-label"></label>
-        <input type="text" name="bill" id="bill" class="bill__input" placeholder="0">
-      </section>
 
+      <div class="container">
+        <!-- Bill -->
+        <section class="bill">
+          <h2 class="bill__title">Bill</h2>
+          <label for="bill" class="bill__input-label"></label>
+          <input type="number" name="bill" id="bill" class="bill__input" placeholder="0">
+        </section>
+        <!-- Tip -->
+        <section class="tip">
+          <h2 class="tip__title">Select Tip %</h2>
 
-      <!-- Tip -->
-      <section class="tip">
-        <h2 class="tip__title">Select Tip %</h2>
-
-        <div class="btn-container">
-          <button data-value="1.05" class="btn btn-tip">5%</button>
-          <button data-value="1.1" class="btn btn-tip">10%</button>
-          <button data-value="1.15" class="btn btn-tip">15%</button>
-          <button data-value="1.25" class="btn btn-tip">25%</button>
-          <button data-value="1.5" class="btn btn-tip">50%</button>
-          <label for="custom-tip"></label>
-          <input type="text" name="custom-tip" id="custom-tip" class="btn btn-custom" placeholder="Custom">
-        </div>
-      </section>
-
-      <!-- People -->
-      <section class="people">
-        <h2 class="people__title">Number of People</h2>
-        <label for="people" class="people__input-label"></label>
-        <input type="text" name="people" id="people" placeholder="0" class="people__input">
-      </section>
+          <div class="btn-container">
+            <button data-value="1.05" class="btn btn-tip">5%</button>
+            <button data-value="1.1" class="btn btn-tip">10%</button>
+            <button data-value="1.15" class="btn btn-tip">15%</button>
+            <button data-value="1.25" class="btn btn-tip">25%</button>
+            <button data-value="1.5" class="btn btn-tip">50%</button>
+            <label for="custom-tip"></label>
+            <input type="number" name="custom-tip" id="custom-tip" class="btn btn-custom" placeholder="Custom">
+          </div>
+        </section>
+        <!-- People -->
+        <section class="people">
+          <h2 class="people__title">Number of People</h2>
+          <label for="people" class="people__input-label"></label>
+          <input type="number" name="people" id="people" placeholder="0" class="people__input">
+        </section>
+      </div>
 
       <!-- Account -->
       <section class="account">
