@@ -10,13 +10,17 @@
     @include for-medium-screens {
         @include flexbox;
     }
+
+    @media screen and(max-height:670px) {
+        min-height: 750px;
+    }
+
 }
 
 .logo {
     margin: 4rem auto;
 
-    @include for-medium-screens {
-    }
+    @include for-medium-screens {}
 }
 
 
@@ -26,7 +30,14 @@
     font-size: 1.4rem;
     font-weight: 700;
 
+    @include for-medium-screens {
+        position: absolute;
+        background-color: transparent;
+        top: 1rem;
+        right: 1rem;
+    }
+
     a {
-        color: $cyan;
+        color: $Very-dark-cyan;
     }
 }

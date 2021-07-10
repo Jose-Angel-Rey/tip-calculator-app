@@ -2,6 +2,17 @@
 //      CALCULATOR    
 // **************************
 
+.container {
+    border: 1px solid red;
+    @include flexbox;
+    width: 100%;
+    max-width: 30rem;
+
+    @include for-large-screens {
+        max-width: 45%;
+    }
+}
+
 .calculator {
     @include flexbox;
     background-color: $White;
@@ -11,7 +22,14 @@
     width: 100%;
 
     @include for-medium-screens {
-    max-width: 65rem;
+        border-radius: 2rem;
+        max-width: 60rem;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    @include for-large-screens {
+        max-width: 80rem;
     }
 }
 
@@ -20,6 +38,12 @@
     margin: 2rem 0;
     width: 90%;
     max-width: 25rem;
+
+    @include for-large-screens {
+        width: 100%;
+        margin: 0;
+        max-width: 40rem;
+    }
 
     &__title {
         color: $Dark-grayish-cyan;
@@ -59,6 +83,11 @@
 
 .tip {
     @extend .bill;
+
+    @include for-large-screens {
+        margin: 3rem 0;
+
+    }
 
     &__title {
         @extend .bill__title
@@ -101,11 +130,20 @@
     width: 90%;
     max-width: 25rem;
 
+    @include for-large-screens {
+        max-width: 45%;
+        padding: 3rem;
+    }
+
     .tip-amount {
         display: flex;
         font-size: .8rem;
         justify-content: space-between;
         align-items: center;
+
+        @include for-large-screens {
+            margin: 2rem 0 4rem;
+        }
 
         &__title {
             color: $White;
@@ -127,6 +165,14 @@
         @extend .tip-amount;
         margin-top: 3rem;
 
+        @include for-medium-screens {
+            margin-bottom: 7rem;
+        }
+
+        @include for-large-screens {
+            margin-bottom: 9rem;
+        }
+
         &__title {
             @extend .tip-amount__title;
         }
@@ -137,6 +183,8 @@
 
         &__amount-per-person {
             @extend .tip-amount__amount-per-person;
+
+
         }
     }
 }

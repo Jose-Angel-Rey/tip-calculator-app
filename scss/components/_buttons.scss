@@ -21,6 +21,12 @@
         width: 100%;
         text-transform: uppercase;
         margin-top: 3rem;
+
+        &.disabled {
+            opacity: .2;
+            ;
+            user-select: none;
+        }
     }
 
     &-tip {
