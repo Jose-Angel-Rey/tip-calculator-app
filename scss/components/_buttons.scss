@@ -24,10 +24,6 @@
         color: $Very-dark-cyan;
     }
 
-    &:active {
-        background-color: $cyan;
-    }
-
     &-reset {
         background-color: $cyan;
         color: $Very-dark-cyan;
@@ -46,6 +42,7 @@
         }
 
         &:active {
+            background-color: $cyan;
             transform: scale(1);
         }
 
@@ -64,5 +61,15 @@
 
     &-tip {
         width: 11.5rem;
+
+        &--active {
+            color: $Very-dark-cyan;
+            background-color: $cyan;
+
+            &:hover {
+                background-color: $cyan;
+
+            }
+        }
     }
 }

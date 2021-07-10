@@ -73,6 +73,10 @@
 
             &+input {
                 border: 1px solid $warning-color;
+
+                &:focus {
+                    border: 1px solid $warning-color;
+                }
             }
         }
     }
@@ -83,7 +87,7 @@
         width: 11.5rem;
         padding: .6rem 1rem .6rem 0;
 
-        &:hover{
+        &:hover {
             background-color: $Light-grayish-cyan;
         }
     }
