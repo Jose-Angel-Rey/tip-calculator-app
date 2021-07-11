@@ -1,10 +1,9 @@
 "use strict";
-// Botones
+
 const tipButtons = document.querySelectorAll(".btn-tip");
 const customTip = document.getElementById("custom-tip");
 const resetButton = document.querySelector(".btn-reset")
 
-// Inputs
 const inputPeople = document.getElementById("people");
 const inputBill = document.getElementById("bill");
 
@@ -12,38 +11,9 @@ let tipValue = .001;
 let billValue = 0;
 let peopleValue = 1;
 
-// Totales
 let totalPerPerson = document.querySelector(".total__amount-per-person");
 let tipPerPerson = document.querySelector(".tip-amount__amount-per-person");
 
-// Bill input
-inputBill.addEventListener("input", () => {
-    billValue = inputValidation(inputBill);
-    total();
-    if (!billValue == 0) {
-        resetButton.disabled = false;
-        resetButton.addEventListener("click", resetValues)
-    }
-});
-
-function resetValues() {
-    tipButtons.forEach((button) => {
-        if (button.classList.contains("btn-tip--active")) button.classList.remove("btn-tip--active")
-    })
-    customTip.value = "";
-    inputBill.value = "";
-    inputPeople.value = "";
-    tipPerPerson.textContent = `$0.00`;
-    totalPerPerson.textContent = `$0.00`;
-    resetButton.disabled = true;
-
-}
-
-// People input
-inputPeople.addEventListener("input", () => {
-    peopleValue = inputValidation(inputPeople);
-    total();
-});
 
 function inputValidation(input) {
     let inputWarning = input.previousElementSibling;
@@ -62,9 +32,40 @@ function inputValidation(input) {
     return Number(input.value);
 }
 
-// -----------------------------------------------------------------
+function calcTotal() {
+    const tipAmount = ((billValue * tipValue) / 100 / peopleValue).toFixed(2);
+    const totalAmount = ((billValue / peopleValue) + Number(tipAmount)).toFixed(2);
 
-// Capturar el valor de los botones para el porcentaje de la propina
+    tipPerPerson.textContent = `$${tipAmount}`;
+    totalPerPerson.textContent = `$${totalAmount}`;
+}
+
+function resetValues() {
+    tipButtons.forEach((button) => {
+        if (button.classList.contains("btn-tip--active")) button.classList.remove("btn-tip--active")
+    })
+    customTip.value = "";
+    inputBill.value = "";
+    inputPeople.value = "";
+    tipPerPerson.textContent = `$0.00`;
+    totalPerPerson.textContent = `$0.00`;
+    resetButton.disabled = true;
+
+}
+
+
+// get bill value
+inputBill.addEventListener("input", () => {
+    billValue = inputValidation(inputBill);
+    calcTotal();
+    if (!billValue == 0) {
+        resetButton.disabled = false;
+        resetButton.addEventListener("click", resetValues)
+    }
+});
+
+
+// get tip value
 tipButtons.forEach((tipButton) => {
     tipButton.addEventListener("click", () => {
         if (!tipButton.classList.contains("btn-tip--active")) {
@@ -83,13 +84,12 @@ tipButtons.forEach((tipButton) => {
             tipButton.classList.remove("btn-tip--active");
             tipValue = 1;
         }
-        total();
+        calcTotal();
     });
 });
 
-// Valor Custom
+// get custom tip value
 customTip.addEventListener("click", () => {
-    // Remueve el enfasis de los otros botones
     tipButtons.forEach((tipButton) => {
         if (tipButton.classList.contains("btn-tip--active")) {
             tipButton.classList.remove("btn-tip--active");
@@ -97,20 +97,15 @@ customTip.addEventListener("click", () => {
         }
     });
 });
-
-// Obtener el valor custom
 customTip.addEventListener("input", () => {
     tipValue = inputValidation(customTip);
-    total();
+    calcTotal();
 });
-// -----------------------------------------------------------------
+
+// get people value
+inputPeople.addEventListener("input", () => {
+    peopleValue = inputValidation(inputPeople);
+    calcTotal();
+});
 
 
-function total() {
-    const tipAmount = ((billValue * tipValue) / 100 / peopleValue).toFixed(2);
-    const totalAmount = ((billValue / peopleValue) + Number(tipAmount)).toFixed(2);
-
-    tipPerPerson.textContent = `$${tipAmount}`;
-    totalPerPerson.textContent = `$${totalAmount}`;
-
-}
