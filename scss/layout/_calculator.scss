@@ -2,16 +2,6 @@
 //      CALCULATOR    
 // **************************
 
-.container {
-    @include flexbox;
-    width: 100%;
-    max-width: 30rem;
-
-    @include for-large-screens {
-        max-width: 45%;
-    }
-}
-
 .calculator {
     @include flexbox;
     background-color: $White;
@@ -30,8 +20,19 @@
     @include for-large-screens {
         max-width: 80rem;
     }
+
+    .container {
+        @include flexbox;
+        width: 100%;
+        max-width: 30rem;
+
+        @include for-large-screens {
+            max-width: 45%;
+        }
+    }
 }
 
+// Bill section
 .bill {
     margin: 2rem 0;
     width: 90%;
@@ -51,6 +52,7 @@
     }
 }
 
+// Tip section
 .tip {
     @extend .bill;
 
@@ -77,6 +79,7 @@
 
 }
 
+// People section
 .people {
     @extend .bill;
 
@@ -85,6 +88,7 @@
     }
 }
 
+// Total account section
 .account {
     background-color: $Very-dark-cyan;
     border-radius: 2rem;

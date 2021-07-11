@@ -1,4 +1,10 @@
+// ********************
+//       LABELS
+// ********************
+
 .input {
+
+    // Label
     &__label {
         display: block;
         position: relative;
@@ -31,6 +37,7 @@
         }
     }
 
+    // Field
     &__field {
         background-color: $Light-grayish-cyan;
         border: 2px solid $Light-grayish-cyan;
@@ -59,6 +66,7 @@
         }
     }
 
+    // Warning
     &__warning {
         color: $warning-color;
         font-size: 1.3rem;
@@ -81,6 +89,7 @@
         }
     }
 
+    // Custom
     &-custom {
         @extend .btn;
         @extend .input__field;

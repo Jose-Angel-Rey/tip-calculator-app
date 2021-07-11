@@ -17,13 +17,12 @@
 
 }
 
+// Logo
 .logo {
     margin: 4rem auto;
-
-    @include for-medium-screens {}
 }
 
-
+// Attribution footer
 .attribution {
     background-color: $White;
     padding: 2rem;
